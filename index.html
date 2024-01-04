@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry Layout with Text</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .masonry-container {
+            margin: 30px;
+        }
+
+        .masonry-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        /* ... (Previous CSS code) ... */
+
+.masonry-item .image-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 70px 40px 70px; /* Default padding for larger screens */
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(255, 255, 255));
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    opacity: 1;
+    transition: opacity 0.9s ease-in-out;
+    font-size: 29px;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .masonry-item .image-text {
+        padding: 20px 30px 20px 30px; /* Adjusted padding for medium screens */
+        font-size: 20px; /* Adjusted font size for medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .masonry-item .image-text {
+        padding: 15px 20px 15px 20px; /* Adjusted padding for small screens */
+        font-size: 16px; /* Adjusted font size for small screens */
+    }
+}
+
+/* ... (Remaining CSS code) ... */
+
+        
+
+        .masonry-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .masonry-item:hover .image-text {
+            opacity: 0;
+        }
+
+        @media (min-width: 576px) {
+            .masonry-container {
+                column-count: 2;
+                column-gap: 15px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .masonry-container {
+                column-count: 3;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .masonry-container {
+                column-count: 3;
+            }
+        }
+        .navbar-brand img {
+    max-height: 60px; /* Set the desired maximum height */
+    width: auto;
+}
+.banner {
+    height: 100vh;
+    background: url('your-background-image.jpg') center/cover no-repeat; /* Replace 'your-background-image.jpg' with your actual background image */
+    color: white;
+}
+
+.banner h1 {
+    font-size: 3rem; /* Adjust the font size as needed */
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 1.2rem; /* Adjust the font size as needed */
+    margin-bottom: 30px;
+}
+
+.banner a {
+    font-size: 1.2rem; /* Adjust the font size as needed */
+}
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+    }
+
+    .container {
+        z-index: 1; /* Ensure the text container is above the video overlay */
+    }
+    .navbar {
+    z-index: 2; /* Set a higher z-index for the navbar */
+}
+
+
+    </style>
+</head>
+
+<body>
+   <!-- navbar -->
+<nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <!-- nav header -->
+        <div class="navbar-header d-flex">
+            <a class="navbar-brand" href="#">
+                <img src="gstudio.png" class="logo" alt="logo" />
+            </a>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <!-- links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- banner -->
+<div class="banner d-flex align-items-center">
+    <video autoplay muted loop poster="video-poster.jpg" id="background-video">
+        <source src="pexels-florian-lovis-5749164 (2160p).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+     <!-- Overlay div for dimming effect -->
+     <div class="overlay"></div>
+
+    <div class="container text-center">
+        <h1 style="color: white;">G - Studio</h1>
+        <p style="color: white;">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores sed velit deserunt amet odit impedit
+            harum sunt sapiente eaque doloremque?
+        </p>
+        <a href="#tours"  class="scroll-link btn btn-outline-light rounded-pill">
+            Explore Us
+        </a>
+    </div>
+</div>
+
+
+  
+    <div class="container">
+        <div class="masonry-container">
+            <!-- Image 1 -->
+            <div class="masonry-item">
+                <img src="img1.jpg" alt="Image 1">
+                <div class="image-text">Video Workshop </div>
+            </div>
+            <!-- Image 2 -->
+            <div class="masonry-item">
+                <img src="img3.jpg" alt="Image 2">
+                <div class="image-text">Photo Workshop</div>
+            </div>
+            <!-- Image 3 -->
+            <div class="masonry-item">
+                <img src="img2.jpg" alt="Image 3">
+                <div class="image-text">Filming Workshop</div>
+            </div>
+            <!-- Image 4 -->
+            <div class="masonry-item">
+                <img src="vzj.jpg" alt="Image 4">
+                <div class="image-text">Master classes</div>
+            </div>
+            <!-- Image 5 -->
+            <div class="masonry-item">
+                <img src="img4.jpg" alt="Image 5">
+                <div class="image-text">Fun events</div>
+            </div>
+            <!-- Image 6 -->
+            <div class="masonry-item">
+                <img src="img5.jpg" alt="Image 6">
+                <div class="image-text">Interviews</div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-light text-white py-4">
+        <div class="container text-center" style="color: black;">
+            <p>Copyright © 2024 gstudio</p>
+            <button class="btn btn-light mx-2">contact us</button>
+            <button class="btn btn-light mx-2">about us</button>
+            <button class="btn btn-light mx-2">suggestions</button>
+        </div>
+    </footer>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
